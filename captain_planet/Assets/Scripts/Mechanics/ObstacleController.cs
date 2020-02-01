@@ -2,8 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum ObstacleType {
+    Bridge,
+    Gate
+}
+
 public class ObstacleController : MonoBehaviour
 {
+    public ObstacleType obstacleType;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -18,15 +25,32 @@ public class ObstacleController : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        //Must change the name the Projectle
-        if (collision.gameObject.tag == "Projectile")
+        if (obstacleType == ObstacleType.Bridge)
         {
-            Debug.Log("Hello");
-            //Remove the hider object
-            if (transform.childCount > 0) {
-                Destroy(transform.GetChild(0).gameObject);
+            if (collision.gameObject.tag == "Projectle")
+            {
+                //Remove the hider object
+                if (transform.childCount > 0)
+                {
+                    Destroy(transform.GetChild(0).gameObject);
+                }
             }
         }
+        else if (obstacleType == ObstacleType.Gate)
+        {
+            if (collision.gameObject.tag == "Projectle")
+            {
+                //Remove the hider object
+                if (transform.childCount > 0)
+                {
+                    Destroy(transform.GetChild(0).gameObject);
+                    Destroy(this.GetComponent<BoxCollider2D>());
+                }
+            }
+        }
+        
+
+         
         
 
     }
