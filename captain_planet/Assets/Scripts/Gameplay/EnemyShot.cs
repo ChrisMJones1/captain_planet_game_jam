@@ -18,16 +18,16 @@ namespace Platformer.Gameplay
         {
 
         }
-        public void OnCollisionEnter2D(Collision2D collision)
-        {
-            if (collision.gameObject.tag == "enemy")
-            {
+        //public void OnCollisionEnter2D(Collision2D collision)
+        //{
+        //    if (collision.gameObject.tag == "enemy")
+        //    {
 
-                Debug.Log("hit");
-                Destroy(collision.gameObject);
-                Destroy(gameObject);
-            }
+        //        Debug.Log("hit");
+        //        Destroy(collision.gameObject);
+        //        Destroy(gameObject);
+        //    }
 
-        }
+        //}
     }
 }

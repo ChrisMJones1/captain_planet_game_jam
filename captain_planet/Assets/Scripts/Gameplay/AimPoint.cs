@@ -31,7 +31,6 @@ public class AimPoint : MonoBehaviour
         if (Input.GetButtonDown("Fire1"))
         {//when the left mouse button is clicked
 
-            print("1");//print a message to act as a debug
 
             FireBullet();//look for and use the fire bullet operation
 
@@ -41,6 +40,7 @@ public class AimPoint : MonoBehaviour
 
     public void FireBullet()
     {
+        player = GameObject.FindWithTag("Player");
         Vector3 playervector = player.transform.position;
         Vector3 mouse = new Vector3(Input.mousePosition.x, Input.mousePosition.y, zAxisPos - Camera.main.transform.position.z);
         mouse = Camera.main.ScreenToWorldPoint(mouse);
@@ -54,16 +54,9 @@ public class AimPoint : MonoBehaviour
         //Clone of the bullet
         GameObject Clone;
 
-        player = GameObject.FindWithTag("NewPlayer");
-        Debug.Log(player.transform.position.x);  
 
         //spawning the bullet at position
         Clone = (Instantiate(Triangle, new Vector3(player.transform.position.x, player.transform.position.y, 1), transform.rotation)) as GameObject;
-        Debug.Log("Bullet is found");
-        Vector3 cursorangle = new Vector3(mouse.x, mouse.y, 1);
-        Vector3 playerangle = new Vector3(player.transform.position.x, player.transform.position.y, 1);
-
-        float angle = Vector3.Angle(playerangle, cursorangle);
 
         
       
