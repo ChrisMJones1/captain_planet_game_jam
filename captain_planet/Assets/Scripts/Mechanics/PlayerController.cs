@@ -55,6 +55,7 @@ namespace Platformer.Mechanics
         {
             if (controlEnabled)
             {
+
                 move.x = Input.GetAxis("Horizontal");
                 if (jumpState == JumpState.Grounded && Input.GetButtonDown("Jump"))
                     jumpState = JumpState.PrepareToJump;
