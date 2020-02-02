@@ -10,6 +10,8 @@ public enum ObstacleType {
 public class ObstacleController : MonoBehaviour
 {
     public ObstacleType obstacleType;
+    public bool repaired;
+    public Canvas gameUI;
 
     // Start is called before the first frame update
     void Start()
@@ -27,31 +29,29 @@ public class ObstacleController : MonoBehaviour
     {
         if (obstacleType == ObstacleType.Bridge)
         {
-            if (collision.gameObject.tag == "Projectle")
+            if (collision.gameObject.tag == "projectile")
             {
                 //Remove the hider object
                 if (transform.childCount > 0)
                 {
+                    gameUI.GetComponent<GameUIController>().UpdateScore(100);
                     Destroy(transform.GetChild(0).gameObject);
                 }
             }
         }
         else if (obstacleType == ObstacleType.Gate)
         {
-            if (collision.gameObject.tag == "Projectle")
+            if (collision.gameObject.tag == "projectile")
             {
                 //Remove the hider object
                 if (transform.childCount > 0)
                 {
+                    gameUI.GetComponent<GameUIController>().UpdateScore(100);
                     Destroy(transform.GetChild(0).gameObject);
+                    Destroy(this.GetComponent<Rigidbody2D>());
                     Destroy(this.GetComponent<BoxCollider2D>());
                 }
             }
         }
-        
-
-         
-        
-
     }
 }

@@ -143,6 +143,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   obstacleType: 1
+  repaired: 0
+  gameUI: {fileID: 2913869547488559382, guid: 9482cfd7f7338f5499b7b79dd02d9e43, type: 3}
 --- !u!1 &4095848840043389526
 GameObject:
   m_ObjectHideFlags: 0
