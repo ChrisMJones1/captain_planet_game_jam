@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Triangle : MonoBehaviour
 {
+    public Canvas gameUI;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -23,6 +25,7 @@ public class Triangle : MonoBehaviour
         // Whenever a gameobject with this script enter a valid collision it will destroy itself.
         if (collision.gameObject.tag == "enemy")
         {
+            gameUI.GetComponent<GameUIController>().UpdateScore(100);
             Destroy(collision.gameObject);
         }
         Destroy(this.gameObject);

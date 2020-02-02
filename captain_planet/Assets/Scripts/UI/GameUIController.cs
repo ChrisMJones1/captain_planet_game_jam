@@ -9,14 +9,13 @@ public class GameUIController : MonoBehaviour
     public Text timeText;
     public Text scoreText;
 
-    private int hp;
-    private float time;
-    private int score;
+    private int hp = 100;
+    private float time = 0;
+    private int score = 0;
 
     // Start is called before the first frame update
     void Start()
     {
-        time = 0;
     }
 
     // Update is called once per frame
